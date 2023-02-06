@@ -1,0 +1,238 @@
+////Variables
+//Colors
+$color-white: #fff;
+$color-beige: #f5f5dc;
+$color-background-top: #cccccc;
+$color-border-black: #000000;
+$color-choice-color-box: #eee;
+$color-drop-down:rgb(222, 222, 201);
+$color-scoreboard-background:rgb(47, 47, 47);
+
+//// General
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%; //10px
+    box-sizing: border-box;
+}
+
+body{
+    font-family: serif;
+    font-size: 2.6rem;
+}
+
+.button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600 ;
+    background-color: $color-beige;
+    padding: 1rem 2rem;
+    font-size: 2.6rem;
+}
+
+//Playing-field
+.playing-field {
+    position: relative;
+    max-width: 120rem;
+    width: 100%;
+    margin: 5rem auto;
+    height: calc(100vh - 10rem);
+    border: 5px solid $color-border-black;
+
+    background-color: $color-background-top;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1.2fr 5fr 1.5fr;
+}
+
+.player-name-wrapper{
+    
+    place-self: center;
+
+    .player-name {
+        font-size: 3.6rem;
+        padding: 0 2rem;
+        margin: 1rem 0;
+        background-color: $color-beige;
+        // display: none;
+
+    }
+  
+    .player-name-input {
+        display: none;
+        margin-bottom: 1rem;
+        padding: 1rem 0;
+        background-color: $color-beige;
+        font-size: 1.6rem;
+
+        &::placeholder{
+            padding-left: 1rem;
+            font-size: 1.8rem;
+        }
+    } 
+
+    .new-player-name-button {
+        display: block;
+    }
+
+    .new-player-start-button {
+        display: none;
+    }
+
+}
+
+.guessing-color{
+    background-color: $color-white;
+    place-self: center;
+    font-size: 2.6rem;
+    padding: 2rem 3rem;
+    text-transform: uppercase;
+}
+
+.new-color{
+    place-self: center;
+    position: relative;
+    
+    // &__button{
+        
+    // }
+
+    &__drop-down{
+        position: absolute;
+        top:100%;
+        background-color: $color-drop-down;
+        width: 100%;
+        height: 20rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+
+        display: none;
+    }
+    .drop-down-button { 
+        font-size: 3rem;
+        width: 70%;
+        text-transform: uppercase;
+        background-color: $color-beige;
+        border: 1px solid $color-border-black;
+        cursor: pointer;
+    }
+}
+
+.choice-colors {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    place-self: center;
+    
+    background-color: $color-white;
+    display: grid;
+    gap: 5rem;
+    
+    padding: 0 34rem;
+    width: 100%;
+    height: 100%;
+    
+    
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    .color{
+        place-self: center;
+        background-color: $color-choice-color-box;
+        cursor: pointer;
+        
+        height: 12rem;
+        width: 12rem;
+
+        &-1{
+            justify-self: end;
+            align-self: flex-end;
+        }
+
+        &-2{
+            align-self: flex-end;
+        }
+
+        &-3{
+            justify-self: start;
+            align-self: flex-end;
+        }
+
+        &-4{
+            justify-self: end;
+            align-self: flex-start;
+        }
+
+        &-5{
+            align-self: flex-start;
+        }
+
+        &-6{
+            justify-self: start;
+            align-self: flex-start;
+        }
+    }
+
+    .hide{
+        visibility: hidden;
+        // background-color: #eee;
+    }
+}
+
+.scoreboard{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    
+    background-color: $color-scoreboard-background;
+    
+    &__heading{
+        text-transform: uppercase;
+        font-size: 2.6rem;
+        margin: 2rem 1rem 0.8rem ;
+        color: $color-white;
+      
+    }
+
+    &__table{
+        border-collapse: collapse;
+        width: 100%;
+        th, td {
+            border: 2px solid $color-border-black;
+            flex-grow: 1;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        td {
+            width: calc(100% / 13);
+        }
+        &-row{   
+            background-color: $color-beige;
+            padding: 2rem 0;
+        }
+    }
+}
+
+.finish-game {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000a7;
+    font-size: 8rem;
+    color: $color-white;
+    text-align: center;
+    display: none;
+
+    p {
+        margin: 30% auto;
+    }
+}

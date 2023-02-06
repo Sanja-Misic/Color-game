@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: serif;
+  font-size: 2.6rem;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: #f5f5dc;
+  padding: 1rem 2rem;
+  font-size: 2.6rem;
+}
+
+.playing-field {
+  position: relative;
+  max-width: 120rem;
+  width: 100%;
+  margin: 5rem auto;
+  height: calc(100vh - 10rem);
+  border: 5px solid #000000;
+  background-color: #cccccc;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1.2fr 5fr 1.5fr;
+}
+
+.player-name-wrapper {
+  place-self: center;
+}
+.player-name-wrapper .player-name {
+  font-size: 3.6rem;
+  padding: 0 2rem;
+  margin: 1rem 0;
+  background-color: #f5f5dc;
+}
+.player-name-wrapper .player-name-input {
+  display: none;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  background-color: #f5f5dc;
+  font-size: 1.6rem;
+}
+.player-name-wrapper .player-name-input::-moz-placeholder {
+  padding-left: 1rem;
+  font-size: 1.8rem;
+}
+.player-name-wrapper .player-name-input:-ms-input-placeholder {
+  padding-left: 1rem;
+  font-size: 1.8rem;
+}
+.player-name-wrapper .player-name-input::placeholder {
+  padding-left: 1rem;
+  font-size: 1.8rem;
+}
+.player-name-wrapper .new-player-name-button {
+  display: block;
+}
+.player-name-wrapper .new-player-start-button {
+  display: none;
+}
+
+.guessing-color {
+  background-color: #fff;
+  place-self: center;
+  font-size: 2.6rem;
+  padding: 2rem 3rem;
+  text-transform: uppercase;
+}
+
+.new-color {
+  place-self: center;
+  position: relative;
+}
+.new-color__drop-down {
+  position: absolute;
+  top: 100%;
+  background-color: rgb(222, 222, 201);
+  width: 100%;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  display: none;
+}
+.new-color .drop-down-button {
+  font-size: 3rem;
+  width: 70%;
+  text-transform: uppercase;
+  background-color: #f5f5dc;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+
+.choice-colors {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  place-self: center;
+  background-color: #fff;
+  display: grid;
+  gap: 5rem;
+  padding: 0 34rem;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.choice-colors .color {
+  place-self: center;
+  background-color: #eee;
+  cursor: pointer;
+  height: 12rem;
+  width: 12rem;
+}
+.choice-colors .color-1 {
+  justify-self: end;
+  align-self: flex-end;
+}
+.choice-colors .color-2 {
+  align-self: flex-end;
+}
+.choice-colors .color-3 {
+  justify-self: start;
+  align-self: flex-end;
+}
+.choice-colors .color-4 {
+  justify-self: end;
+  align-self: flex-start;
+}
+.choice-colors .color-5 {
+  align-self: flex-start;
+}
+.choice-colors .color-6 {
+  justify-self: start;
+  align-self: flex-start;
+}
+.choice-colors .hide {
+  visibility: hidden;
+}
+
+.scoreboard {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  background-color: rgb(47, 47, 47);
+}
+.scoreboard__heading {
+  text-transform: uppercase;
+  font-size: 2.6rem;
+  margin: 2rem 1rem 0.8rem;
+  color: #fff;
+}
+.scoreboard__table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.scoreboard__table th, .scoreboard__table td {
+  border: 2px solid #000000;
+  flex-grow: 1;
+  padding: 1rem 0;
+  text-align: center;
+}
+.scoreboard__table td {
+  width: 7.6923076923%;
+}
+.scoreboard__table-row {
+  background-color: #f5f5dc;
+  padding: 2rem 0;
+}
+
+.finish-game {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6549019608);
+  font-size: 8rem;
+  color: #fff;
+  text-align: center;
+  display: none;
+}
+.finish-game p {
+  margin: 30% auto;
+}/*# sourceMappingURL=style.css.map */
