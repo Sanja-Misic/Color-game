@@ -1,6 +1,8 @@
 'use strict'
 
 ///////// Variables
+//colors
+const displayPickedColor = "#fff";
 // player name element
 let playerName = document.querySelector(".player-name");
 let inputName = document.querySelector(".player-name-input");
@@ -99,6 +101,16 @@ const newColorDropDownFunction = () => {
 const hex = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','F'];
 const rgb = () => Math.floor(Math.random() * 255 + 1)
 
+const colorHex= () => {
+    let hexKey ="#"
+    for(let i=0; i<6; i++){
+        const index = Math.floor(Math.random() * hex.length);
+        hexKey = hexKey + hex[index]
+    }
+    return hexKey
+    
+}
+
 //rgb hex generate random color
 const generateRandomColorRgb = () => {
     for(let i = 0; i < squares.length; i++) {
@@ -108,18 +120,12 @@ const generateRandomColorRgb = () => {
     }    
 }
 
-const generateRandomColorHex= () => {
-    let hexKey = '#';
-    for(let i=0; i<6; i++){
-        const index = Math.floor(Math.random() * hex.length);
-        hexKey = hexKey + hex[index]
-    }
-
+const generateRandomColorHex = () => {
     for(let i = 0; i < squares.length; i++) {
         colors.push(
-        hexKey
+        colorHex()
         )
-    }
+    }    
 }
 
 //rgb hex button functions
@@ -136,7 +142,6 @@ const rgbButtonFunction = () => {
 const hexButtonFunction = () => {
     colors = [];
     generateRandomColorHex();
-    console.log(colors)
     setColors();
     pickedColor = getRandomPickedColor();
     squares.forEach(square => square.style.pointerEvents = "auto")
@@ -165,8 +170,10 @@ const checkColor = () => {
         square.addEventListener("click", (e) => {
            
             if(e.target.dataset.color === pickedColor) {
+                colorDisplay.style.backgroundColor = pickedColor;
                 updateScoreboard(currentPlayer, inputName.value, score);
                 finishGame.style.display = "block"
+
 
             }
             else {
@@ -186,6 +193,7 @@ const finishGameFunction = () => {
     playerName.textContent = "Player 1"
     squares.forEach(square => square.style.pointerEvents = "none");
     colorDisplay.textContent = "color for guessing"
+    colorDisplay.style.backgroundColor = displayPickedColor;
 }
 
 //update scoreboard function
@@ -203,7 +211,7 @@ startButton.addEventListener('click', startFunction);
 newColorButton.addEventListener('click', newColorDropDownFunction);
 
 rgbButton.addEventListener('click', rgbButtonFunction)
-hexButton.addEventListener('click', rgbButtonFunction)
+hexButton.addEventListener('click', hexButtonFunction)
 
 finishGame.addEventListener("click", finishGameFunction)
 
